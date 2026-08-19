@@ -36,6 +36,8 @@ Quit via the **QUIT** button (click twice).
 
 # SETTINGS
 
+- Note: Some settings will force the plot to reinitialize, resulting in a momentary burst of spectrum-wide band peaks.
+
 ## Input modes
 
 **Audio** — visualizes the app's own output mix, fed by the built-in file
@@ -48,10 +50,6 @@ inactive mode appear dimmed; hover them to see why.
 
 ## Parameter reference
 
-Every slider below is also available for key mapping, and everything is
-clamped to a safe range — feel free to experiment. Ranges in parentheses are
-the UI limits.
-
 ### AUDIO tab
 
 **Processor** — shapes the spectrum before it becomes geometry.
@@ -59,38 +57,27 @@ the UI limits.
 - **Input Gain** (0.1–8) — master sensitivity. Raises the whole plot's
   response to the source; too high flattens everything against the height
   cap, too low leaves the plot sleepy.
-- **Attack Rate** (1–60) — how fast the spectrum *rises* toward new energy.
-  High = snappy, percussive response; low = swells that lag the music.
-- **Release Rate** (0.5–30) — how fast it *falls* when energy stops. Low
-  values leave long, smoky decays; high values make the plot twitchy and
-  literal.
+- **Attack Rate** (1–60) — Trigger rate of a note
+- **Release Rate** (0.5–30) — Release rate of the note.
 
 **Capture** *(Audio mode)*
 
-- **Capture Gain** (0.1–8) — level of the captured output mix feeding the
-  visualizer. Use it to balance quiet files without touching playback
-  volume.
+- **Capture Gain** (0.1–8) — level of output mix feeding the
+  visualizer.
 
 **MIDI** *(Midi mode)*
 
-- **MIDI Gain** (0.1–4) — overall strength of note excitation.
-- **Harmonics** (1–32) — overtones synthesized per note. Few = clean single
-  bumps at the fundamental; many = bright, harmonically rich ridges that
-  climb the plot.
+- **MIDI Gain** (0.1–4) — overall strength of note (considering velocity)
+- **Harmonics** (1–32) — Harmonic count generated per note.
 - **Harm. Rolloff** (0.2–2) — how quickly those overtones fade with order.
-  Low keeps upper harmonics strong (buzzy); high concentrates energy at the
-  fundamental (round).
-- **Band Spread** (0.1–6 semitones) — width of the region each note
-  excites. Narrow = needle spikes; wide = hills that merge between
-  neighboring notes.
-- **Note Attack / Note Release** (1–60 / 0.5–30) — per-note envelope: how
-  fast a keypress blooms and how long it lingers after release.
+- **Band Spread** (0.1–6 semitones) — width of the region each note triggers.
+- **Note Attack / Note Release** (1–60 / 0.5–30) — per-note envelope.
 - **Velocity Floor** (0–1) — minimum response for the softest notes, so
   gentle playing still registers.
 
 ### WAVE tab
 
-**Shape** — the plot's skeleton. These rebuild the plot when changed.
+**Shape** — **These rebuild the plot when changed.**
 
 - **Active Bands** (32–512) — how many ridgelines are drawn. Fewer = bold,
   poster-like lines; more = a dense woven field.
@@ -99,8 +86,7 @@ the UI limits.
 
 **Response** — how band energy becomes line height.
 
-- **Dynamic Baseline** — adaptively tracks and removes the noise floor so
-  quiet hiss doesn't haze the plot. Usually on.
+- **Dynamic Baseline** — adaptively tracks and removes the noise floor. Usually on.
 - **Baseline Subtract** (0–1) — how much of that floor is removed. Higher =
   cleaner silence, but can swallow quiet detail.
 - **Dynamic Boost** (0.5–6) — amplification applied after subtraction.
@@ -125,13 +111,12 @@ the UI limits.
 **Envelope**
 
 - **Band Attack / Band Release** (1–60 / 0.5–30) — the smoothing you
-  actually *see*: per-ridge rise and fall speed, downstream of the audio
-  envelope. This pair dominates the plot's perceived snappiness.
+  actually see.
 
 **Geometry**
 
 - **X Resolution** (64–512) — points per line. Low = angular, vectorized
-  lines; high = smooth curves. Rebuilds the plot.
+  lines; high = smooth curves. **Rebuilds the plot.**
 - **Packet Width** (0.05–2) — horizontal spread of each energy bump. Narrow
   reads as spikes, wide as rolling swells.
 
