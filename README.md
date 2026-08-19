@@ -13,16 +13,24 @@ Built in Unity (URP) with a GPU-driven plot, configurable graphics, post process
 
 ### Controls
 
-| **Tab** | Toggle the settings menu |
-| **Escape** | Close the menu (or cancel a key capture) |
-| **Ctrl+Z / Ctrl+Y** | Undo / redo parameter changes (menu open) |
+| **Tab** | Toggle the settings menu | \
+| **Escape** | Close the menu (or cancel a key capture) | \
+| **Ctrl+Z / Ctrl+Y** | Undo / redo parameter changes (menu open) | \
 
 Quit via the **QUIT** button (click twice).
+
 
 ### Supported files
 
 - **Audio**: WAV (uncompressed PCM), OGG Vorbis, MP3.
 - **Images** (for the image mask): PNG, JPG.
+
+---
+
+## Demos
+- <img width="426" height="240" alt="Image Overlay" src="https://github.com/user-attachments/assets/cac4373c-f857-4d93-a71a-7fa02f76c48c" />
+- <img width="426" height="240" alt="Logo Fade-in" src="https://github.com/user-attachments/assets/5824c569-4708-4135-bc64-528b019a235e" />
+- <img width="2559" height="1439" alt="Depth Offsetting / Height Gradient" src="https://github.com/user-attachments/assets/ce8bf651-89d2-4228-af28-b826bc759f53" />
 
 ---
 
@@ -212,6 +220,18 @@ Unreleased
 ### MAPPING tab
 
 Unreleased
+
+---
+
+## Known issues
+
+- **WAV support is limited to uncompressed PCM.** Unity's runtime loader
+  can't decode WAV files written with compressed codecs. Joy-plotter will
+  refuse them with the codec named in the status line. Fix: re-export as
+  16-bit PCM WAV (Audacity: File → Export → WAV, "Signed 16-bit PCM"), or
+  use OGG/MP3.
+
+Found something else? Open an issue!
 
 ---
 
