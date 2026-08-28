@@ -2,7 +2,7 @@
 
 A real-time, highly customizable audio visualizer inspired by the CP-1919 radio pulses.
 Joy-plotter generates stacked ridgelines that breathe data from audio files, live MIDI, or hardware line-in.
-Built in Unity (URP) with a GPU-driven plot, a MilkDrop-style feedback canvas, a palette-quantizing dither composite, a full modulation matrix, and a preset playlist for hands-off sets.
+Built in Unity (URP) with a GPU-driven plot, feedback canvas, color-quantizing dither composite, modulation, and a preset playlist for hands-off sets.
 
 ## Quick start
 
