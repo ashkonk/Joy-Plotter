@@ -1,8 +1,8 @@
 # JOY-PLOTTER
 
 A real-time, highly customizable audio visualizer inspired by the CP-1919 radio pulses.
-Joy-plotter generates stacked ridgelines that breathe data from audio files, live MIDI, or hardware line-in. 
-Built in Unity (URP) with a GPU-driven plot, configurable graphics, post processing, and image overlay feature.
+Joy-plotter generates stacked ridgelines that breathe data from audio files, live MIDI, or hardware line-in.
+Built in Unity (URP) with a GPU-driven plot, a MilkDrop-style feedback canvas, a palette-quantizing dither composite, a full modulation matrix, and a preset playlist for hands-off sets.
 
 ## Quick start
 
@@ -13,12 +13,13 @@ Built in Unity (URP) with a GPU-driven plot, configurable graphics, post process
 
 ### Controls
 
-| **Tab** | Toggle the settings menu | \
-| **Escape** | Close the menu (or cancel a key capture) | \
+| **Tab** | Close the topmost window first (file browser, mod route popup, credits), then the settings menu | \
+| **Escape** | Same close-first flow (or cancel a key capture) | \
 | **Ctrl+Z / Ctrl+Y** | Undo / redo parameter changes (menu open) | \
+| **Space / Backspace** | Next / previous playlist preset (menu closed) | \
 
-Quit via the **QUIT** button (click twice).
-
+Quit via the **QUIT** button (click twice). **HELP** opens this document;
+**CREDITS** shows the credits popup.
 
 ### Supported files
 
@@ -36,7 +37,15 @@ Quit via the **QUIT** button (click twice).
 
 # SETTINGS
 
-- Note: Some settings will force the plot to reinitialize, resulting in a momentary burst of spectrum-wide band peaks.
+- Note: Some settings will force the plot to reinitialize, resulting in a
+  momentary burst of spectrum-wide band peaks.
+- **The M button** on a row adds a modulation route targeting that
+  parameter and jumps to the MODS tab with the route open — any slider,
+  toggle, or dropdown can dance to the music.
+- **XY pads** (Slide, Stretch, Focal Point, Lens Slide) edit two related
+  parameters with one drag. Type exact values into the X / Y boxes, or
+  press **RESET** to return both axes to their defaults. A coral dot rides
+  the pad at the live modulated position while a route drives either axis.
 
 ## Input modes
 
@@ -57,18 +66,26 @@ inactive mode appear dimmed; hover them to see why.
 - **Input Gain** (0.1–8) — master sensitivity. Raises the whole plot's
   response to the source; too high flattens everything against the height
   cap, too low leaves the plot sleepy.
-- **Attack Rate** (1–60) — Trigger rate of a note
-- **Release Rate** (0.5–30) — Release rate of the note.
+- **Attack Rate** (1–60) — trigger rate of a note.
+- **Release Rate** (0.5–30) — release rate of the note.
+- **Norm. Adapt Time** (2–30 s) — how fast the "typical level" reference
+  adapts. This calibrates every audio-reactive mod source: 1.0 means
+  "as loud as usual".
 
 **Capture** *(Audio mode)*
 
-- **Capture Gain** (0.1–8) — level of output mix feeding the
-  visualizer.
+- **Capture Gain** (0.1–8) — level of output mix feeding the visualizer.
+
+**Line-In** *(Line-In mode)*
+
+- **Floor Gate** (0–1) — zeroes bands at or below the threshold and
+  re-normalizes the survivors. Cleans noise-floor hiss and broadband
+  splash at the source.
 
 **MIDI** *(Midi mode)*
 
-- **MIDI Gain** (0.1–4) — overall strength of note (considering velocity)
-- **Harmonics** (1–32) — Harmonic count generated per note.
+- **MIDI Gain** (0.1–4) — overall strength of note (considering velocity).
+- **Harmonics** (1–32) — harmonic count generated per note.
 - **Harm. Rolloff** (0.2–2) — how quickly those overtones fade with order.
 - **Band Spread** (0.1–6 semitones) — width of the region each note triggers.
 - **Note Attack / Note Release** (1–60 / 0.5–30) — per-note envelope.
@@ -150,11 +167,13 @@ inactive mode appear dimmed; hover them to see why.
 **Line Color**
 
 - **Line Red / Green / Blue** (0–1) — the line color. The three slider
-  fills preview the composite color live.
+  fills preview the composite color live. (Color is applied at the palette
+  composite — sources feed the canvas as grayscale ink.)
 
 ### POST-FX tab
 
-Material-level styling of the rendered lines.
+Material-level styling of the rendered lines, plus the palette-quantizing
+composite that gives the whole image its printed identity.
 
 **Line Style**
 
@@ -180,10 +199,79 @@ Material-level styling of the rendered lines.
   don't vanish into the depth fade.
 - **Scanline Pitch** (2–16) — spacing of the scanline / dither pattern.
 
+**Palette Dither** — the final composite. Every on-screen pixel is snapped
+to a fixed palette swatch; only ink *density* is dithered, never color, and
+the dither grid stays screen-aligned even while the canvas rotates
+underneath it. The other dither rows unlock while it's enabled.
+
+- **Palette Dither** — the on/off. Also disables FXAA while on
+  (post-dither smoothing would smear the grid).
+- **Dither Style** — **Pattern** (ordered Bayer) or **Halftone Cells**
+  (print-style dots).
+- **Pixel Size** (1–16) — size of the virtual pixels/cells. Big = chunky
+  riso poster, small = fine newsprint.
+- **Dither Spread** (0–1) — how much the pattern perturbs the quantization;
+  0 = hard posterization bands.
+- **Palette Mapping** — **Nearest Color**, **Luminance Ramp** (brightness
+  indexes the palette), or **Ink Separation** (per-channel plates).
+- **Palette Size** (2–12) — how many swatches are in play. 2 = two-tone
+  print.
+- **Background Swatch** (0–11) — which swatch reads as "paper".
+- **Ink Shading** — **Flat**, **Steps**, or **Modulate** — how ink density
+  shades within a swatch.
+- **Shade Amount** (0–1) — depth of that shading.
+- **Ramp Black / White Point** (0–0.5 / 0.5–1) and **Ramp Contrast**
+  (0.5–4) — the tone ramp feeding the mapping.
+
+### CANVAS tab
+
+The feedback canvas — the MilkDrop-style motion engine. Everything here
+warps the **retained image**, so the Trails amount is the master: at 0 the
+canvas shows only the current frame and the motion controls have nothing to
+move. That's what the **Lens** section at the bottom is for — motion that
+needs no trails at all.
+
+**Trails**
+
+- **Trails** (0–1) — how much of the previous frame survives into this one.
+  0 = off (identical to no canvas); ~0.9+ = long echo trails.
+- **Trail Fade** (0–4) — extra drain per second. Higher = shorter trails.
+- **Fade Pattern / Amount** — shapes *where* trails dissolve (Radial,
+  Angular, Horizontal, Vertical, Noise) — patchy smoke, edge burn-off, etc.
+
+**Zoom / Spin / Slide** — per-second motion applied to the trail image.
+Each has a base rate plus a **Pattern** (a spatial field) and **Pattern
+Amount** that vary the rate per-pixel — the difference between a flat zoom
+and a bulging tunnel.
+
+- **Zoom Flow** (0.5–2) — multiplicative zoom per second. Above 1 expands
+  (tunnel), below 1 sucks inward.
+- **Spin** (−180–180 °/s) — rotation of the trail image around the focal
+  point.
+- **Slide** (XY pad, ±0.5/s) — directional drift.
+
+**Stretch & Focus**
+
+- **Stretch** (XY pad, 0.5–2) — anisotropic scaling per second.
+- **Focal Point** (XY pad, 0–1) — where the zoom/spin motion centers.
+
+**Pattern Shape**
+
+- **Pinwheel Spokes** (1–8) 
+- **Turbulence Scale / Speed** — Noise frequency
+
+**Lens** — a second warp applied to the *final* image
+every frame (Final pass.)
+
+- **Lens Zoom** (0.5–2)
+- **Lens Angle** (−180–180)
+- **Lens Spin** (−180–180 °/s)
+- **Lens Slide** (XY pad, ±0.5)
+- **Lens Pattern / Amount** 
+
 ### IMAGE tab
 
-Load an image (INPUT tab) and its brightness sculpts the plot — the classic
-"face in the waveform" trick. Controls unlock once an image is loaded, and
+Imported images affect band brightness based on image source. Controls unlock once an image is loaded, and
 clearing the image restores all of these to defaults.
 
 - **Height Influence** (0–2) — how strongly image brightness adds to wave
@@ -198,13 +286,74 @@ clearing the image restores all of these to defaults.
   excluding the padding rows.
 - **Flip Vertically** — for images that arrive upside down.
 
+### MAPS tab
+
+Bind keyboard keys and MIDI to parameters for live performance.
+
+- **Keyboard** — capture a key (or chord) and attach it to any parameter
+  with a step size; keys repeat while held. Notes and keys nudge values in
+  steps.
+- **MIDI CC** — absolute control: the knob position *is* the value (no undo
+  history, by design).
+- **MIDI notes** — step/direction triggers, like keyboard keys.
+
+Mapped keys stay live while the menu is open — except while a modal file
+browse is up, or while typing in a text field.
+
+### MODS tab
+
+The modulation matrix: **routes** that push audio (and generator) signals
+into any parameter, live. A route adds its signal *on top of* the slider's
+base value — sliders, presets, and undo always see the base; the coral tick
+on a slider (and the coral dot on a pad) shows the live modulated value.
+
+Each route row: an **activity dot** (glows with the route's envelope), the
+**target picker**, a **gear** opening the detail popup, and **remove**. The
+**+** button adds a route; row **M buttons** all over the settings are a
+shortcut that pre-targets one.
+
+**Route settings** (gear popup):
+
+- **Target** — any parameter (mod settings themselves excluded).
+- **Source** — **Low / Mid / High / Overall** (band energy vs. typical
+  level — rests at zero during ordinary passages), **Centroid** (spectral
+  brightness), **Onset** (drum-hit trigger), **LFO**, **Accumulator**.
+- **Slot** — which LFO / accumulator (4 of each, shared by all routes).
+- **Curve** — Linear, Exponential (emphasizes peaks), Threshold (on/off
+  above a level), Smoothstep, Inverse.
+- **Depth** (−1–1) — signed fraction of the target's range at full signal.
+- **Attack / Release** — the route's own envelope.
+- **Enable** — mute the route without losing its settings.
+
+The **LFO section** (shown when the source is an LFO) edits the *shared*
+slot — rate, shape (Sine / Triangle / Saw / Square / Noise), phase — with a
+live scope drawing exactly the waveform the engine runs. **Accumulators**
+integrate a source over time (fill rate / decay) for slow builds.
+
+The onset detector's **Onset Threshold** and every LFO / accumulator
+setting are ordinary parameters: preset-saved, undoable, and MIDI-mappable.
+
 ### PRESETS tab
 
-Unreleased
+Save, load, and delete complete looks — every parameter plus the full
+modulation route list. Loading replaces everything, including "no
+modulation" if the preset was saved that way.
 
-### MAPPING tab
+**Playlist** — a MilkDrop-style set list.
 
-Unreleased
+- **ADD** appends the preset selected in the dropdown; **REMOVE / UP /
+  DOWN** edit the list; **PREV / NEXT** move through it. The list persists
+  between launches.
+- **Space / Backspace** advance/rewind while the menu is closed.
+- **Transition Time** (0–30 s) — presets *crossfade in parameter space*:
+  smooth values glide, stepped values (band counts, modes, toggles) and the
+  route list swap at the midpoint. 0 = hard cut. Active modulation keeps
+  riding on top of the moving values through the whole transition.
+- **Hold Time** (1–300 s) + **Auto Advance** — hands-off playback. Manual
+  advances restart the hold timer.
+
+Playlist timing is deliberately **not** saved inside presets — a preset
+can't retime or stop the set that's playing it.
 
 ---
 
@@ -223,5 +372,4 @@ Found something else? Open an issue!
 ## License / credits
 
 Built by Ashkon Khalkhali using Unity (URP).
-LASP and Minis Packages by [Keijiro Takahashi](https://github.com/keijiro) Audio & Midi Signal Processing.
-Visual style inspired by Harold Craft's CP-1919 pulsar plots.
+LASP and Minis Packages by [Keijiro Takahashi](https://github.com/keijiro) for Audio & Midi Signal Processing.
