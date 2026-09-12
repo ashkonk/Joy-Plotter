@@ -1,6 +1,6 @@
 # JOY-PLOTTER
 
-JOY-PLOTTER is a stylized, highly configurable audio visualizer. Play an audio file, connect an instrument or MIDI controller, and shape the picture with waves, trails, colors, and print-like textures.
+JOY-PLOTTER is a stylized, highly configurable audio visualizer.
 
 This guide follows the settings menu.
 Jump to: [INPUT](#input-tab) · [AUDIO](#audio-tab) · [WAVE](#wave-tab) · [VISUAL](#visual-tab) · [POST-FX](#post-fx-tab) · [CANVAS](#canvas-tab) · [MEDIA](#media-tab) · [MAPS](#maps-tab) · [MODS](#mods-tab) · [PRESETS](#presets-tab)
@@ -12,53 +12,17 @@ Jump to: [INPUT](#input-tab) · [AUDIO](#audio-tab) · [WAVE](#wave-tab) · [VIS
 3. Switch to **MODE: EDIT** to work on a look without the playlist changing it.
 4. Press **Tab** to hide the menu. Press it again to bring it back.
 
-### Controls
-
-| Control | What it does |
-| --- | --- |
-| **Tab** | Closes an open popup first; otherwise shows or hides the menu. |
-| **Escape** | Cancels a key capture or closes an open popup/menu. |
-| **Ctrl+Z / Ctrl+Y** | Undoes / redoes setting changes while the menu is open. |
-| **Space / Backspace** | Next / previous playlist preset with the menu closed in Play mode. |
-| **QUIT** | Click twice to quit. |
-| **HELP / CREDITS** | Opens this guide / the credits. |
-
-### Finding a starting point
-
-| If you want… | Try… |
-| --- | --- |
-| Taller waves | Increase **Visual Gain**. |
-| Sharp hits with a lingering fall | Raise **Band Attack** and lower **Band Release**. |
-| Hills spanning several lines | Raise **Bump Bleed (bands)**. Widen **Packet Width** for broader hills from left to right. |
-| Movement during silence | Raise **Ambient Wobble**. |
-| Ghostly echoes | Raise **Trails** close to 1, then move **Zoom Flow** slightly above 1. |
-| Rotation without echoes | Use **Lens Spin**. |
-| Chunky print texture | Enable **Palette Dither**, choose **Halftone Cells**, and raise **Cell Size**. |
-| A two-color look | Set **Palette Size** to 2 and edit the first two palette colors. |
-
 ## Demos
 
 - <img width="426" height="240" alt="Image Overlay" src="https://github.com/user-attachments/assets/cac4373c-f857-4d93-a71a-7fa02f76c48c" />
 - <img width="426" height="240" alt="Logo Fade-in" src="https://github.com/user-attachments/assets/5824c569-4708-4135-bc64-528b019a235e" />
 - <img width="2559" height="1439" alt="Depth Offsetting / Height Gradient" src="https://github.com/user-attachments/assets/ce8bf651-89d2-4228-af28-b826bc759f53" />
 
-## Using the settings
-
-- Drag a slider or type into its number box. Ranges below show available limits, not recommended settings.
-- Dimmed controls need something else enabled first. Hover for a hint, such as choosing MIDI input or loading an image.
-- An **M** button creates an automatic movement for that setting and opens it in **MODS**. This is called *modulation*: music or a repeating motion moves a control for you.
-- A coral marker shows the current moving value. The slider itself keeps the starting value you chose.
-- **Slide**, **Stretch**, **Focal Point**, and **Lens Slide** use square pads. Drag to change both directions, type into X/Y, or press **RESET**. X means left/right; Y means up/down. Each direction can be targeted separately in MODS or MAPS.
-- Changing **Active Bands**, padding, or **X Resolution** rebuilds the lines. You may see a brief jump as the picture settles.
-
 ## INPUT tab
 
-Choose what drives the picture:
-
 - **Audio** — uses the app's audio player.
-- **Midi** — responds to notes from a connected MIDI keyboard or controller. Different pitches excite different lines; harder playing creates stronger movement. MIDI notes can drive the picture without an audible instrument.
-- **Line-In** — uses a connected audio input, such as a microphone or instrument input. Select the input device from the device list.
-
+- **Midi** — responds to notes from a connected MIDI keyboard or controller. 
+- **Line-In** — *Requires a Virtual Cable / Input Device*
 ### Audio player
 
 - **LOAD** — opens an audio file: uncompressed PCM WAV, OGG, or MP3.
