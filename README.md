@@ -23,13 +23,6 @@ Jump to: [INPUT](#input-tab) · [AUDIO](#audio-tab) · [WAVE](#wave-tab) · [VIS
 - **Audio** — uses the app's audio player.
 - **Midi** — responds to notes from a connected MIDI keyboard or controller. 
 - **Line-In** — *Requires a Virtual Cable / Input Device*
-### Audio player
-
-- **LOAD** — opens an audio file: uncompressed PCM WAV, OGG, or MP3.
-- **PLAY / PAUSE** — starts or pauses playback. The label tells you what clicking will do.
-- **STOP** — stops playback and returns to the beginning.
-- **Playback position** — drag along the song to jump to another moment.
-- **Volume** — changes listening loudness. In Audio mode it also changes the sound being measured, so the picture can react differently. Use Input Gain or Visual Gain to adjust the visual response without changing listening volume.
 
 ### Media loading
 
