@@ -88,47 +88,43 @@ These add movement independent of music.
 These are speeds: **a larger Attack or Release value means a faster response**
 Note: **The band envelope is independent of the audio processor envelope**
 ### Band Coupling
+### Coupling groups adjacent bands to smoothen the overall spectrum visualization. *No audial influence*
 
-- **Bump Bleed (bands)** (0–32) — lets each main bump lift neighboring lines above and below it. At 0, lines respond independently. Higher values join isolated peaks into broad hills across the stack.
-- **Ripple Spread (bands)** (0–16) — number of neighboring lines sharing each traveling ripple. At 0, it stays on its original line; higher values create a wider wave across the stack. Requires **Transient Ripples** to see the effect.
+- **Bump Bleed (bands)** (0–32)
+- **Ripple Spread (bands)** (0–16)
 
 ### Geometry
 
-- **X Resolution** (64–512) — detail along each line. Lower values can look angular; higher values follow curves and image details more smoothly.
-- **Packet Width** (0.05–2) — width of bumps and traveling ripples from left to right. Narrow settings make spikes; wide settings create rolling swells. Bump Bleed and Ripple Spread widen them across several lines instead.
+- **X Resolution** (64–512) 
+- **Packet Width** (0.05–2)
 
 ### Ripples
 
 - **Transient Ripples** — creates outward-traveling waves when a line receives a sudden burst of sound.
-- **Ripple Threshold** (0.01–1) — strength needed to create a ripple. Lower values produce more ripples; higher values reserve them for strong accents.
-- **Ripple Speed** (0.1–6) — how quickly ripples travel left and right from their starting points.
-- **Ripple Travel** (0–20) — maximum distance before a ripple disappears. Higher values let it cross more of the picture. **0 removes the distance limit**; it does not stop ripples.
-- **Ripple Decay** (0–4) — how quickly ripples shrink over time. Higher values fade them sooner; 0 keeps their strength until another limit removes them.
-- **Ripple Lifetime** (0.2–10 seconds) — longest time a ripple remains. It may disappear sooner because of its travel limit or fading.
+- **Ripple Threshold** (0.01–1) — Play with the parameter!
+- **Ripple Speed** (0.1–6) —  Slide it and see what happens.
+- **Ripple Travel** (0–20) — Hey, just play with it.
+- **Ripple Decay** (0–4)  - ...
+- **Ripple Lifetime** (0.2–10 seconds) - ...
 
 ### Tone
 
-These controls reshape wave height rather than choosing colors.
+These controls define the height, gain, and gamma of the rendered output prior to canvas pass - *independent of any audio input.*
 
-- **Visual Gamma** (0.3–2.5) — balance between small details and large peaks in the finished shape, including wobble and image effects. Below 1 usually brings up small details; above 1 emphasizes stronger peaks. Strong image Height Influence reduces this control's effect.
-- **Visual Gain** (0.1–4) — overall height of the finished waves. Raise it for a dramatic landscape or lower it for a flatter drawing.
-- **Max Wave Height** (0.2–12) — limits peak height, gently rounding off growth near the limit. Low values keep a tidy stack; high values allow towering peaks and more overlap.
-
-### Framing
-
-- **Fit Width / Fit Height** (0.3–1.5 each) — how much of the view the plot occupies horizontally and vertically. Lower values leave more margin; higher values fill more of the screen and can push parts out of view.
-- **Depth Offset** (0–0.1) — places successive rows farther behind one another. The visible effect depends on the view and may be subtle from straight ahead. Use Fit Height to change the stack's height on screen.
-- **Horizontal Slope** (−0.05–0.05) — shifts each successive row farther left or right, giving the stack a slant. At 0 there is no added sideways lean.
+- **Visual Gamma** (0.3–2.5) 
+- **Visual Gain** (0.1–4)
+- **Max Wave Height** (0.2–12)
 
 ### Line Color
 
 - **Line Color** — opens a color editor. Changes preview immediately; **APPLY** keeps them, while **CANCEL** or closing the editor restores the previous color. **Line Red / Line Green / Line Blue** (0–1 each) remain separate MODS and MAPS targets.
 
-With Palette Dither off, this is the lines' color. With it on, final colors come from the palette: changing Line Color mainly changes how bright the lines are considered and therefore which palette colors they receive.
 
 ## POST-FX tab
 
-These style the drawn picture: line weight, shading beneath lines, colors, and print textures.
+These controls style the final pre-canvas pass drawn picture. In short, it consists of: 
+- **Line Style** - **Thickness, Glow, Fade, Gradient, etc.**
+- **Fill** - **Mode - (*Solid, Gradient, Dither, and Scanlines*), falloff, Depth.***
 
 ### Line Style
 
