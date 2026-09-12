@@ -42,7 +42,7 @@ Use **IMPORT MEDIA** for photo / video files. Videos play and repeat automatical
 - **Input Gain** (0.1–8) — overall sensitivity.
 - **Attack Rate** (1–60)
 - **Release Rate** (0.5–30)
-- **Norm. Adapt Time** (2–30 seconds) — how long the app takes to learn what counts as “usual loudness.” This helps MODS react to accents rather than staying fully raised throughout a loud song. Shorter times adjust quickly to new passages; longer times let a sustained loud section stand out for longer.
+- **Norm. Adapt Time** (2–30 seconds) — Poll rate for average energy.
 
 ### Capture — Audio mode
 
