@@ -100,7 +100,7 @@ Note: **The band envelope is independent of the audio processor envelope**
 
 ### Ripples
 
-- **Transient Ripples** — creates outward-traveling waves when a line receives a sudden burst of sound.
+- **Transient Ripples** — **Toggle Band's visual ADSR envelope.** - **Generally encouraged to keep online**
 - **Ripple Threshold** (0.01–1) — Play with the parameter!
 - **Ripple Speed** (0.1–6) —  Slide it and see what happens.
 - **Ripple Travel** (0–20) — Hey, just play with it.
@@ -117,34 +117,30 @@ These controls define the height, gain, and gamma of the rendered output prior t
 
 ### Line Color
 
-- **Line Color** — opens a color editor. Changes preview immediately; **APPLY** keeps them, while **CANCEL** or closing the editor restores the previous color. **Line Red / Line Green / Line Blue** (0–1 each) remain separate MODS and MAPS targets.
+- **Line Color** — opens a color editor.
 
 
 ## POST-FX tab
 
-These controls style the final pre-canvas pass drawn picture. In short, it consists of: 
-- **Line Style** - **Thickness, Glow, Fade, Gradient, etc.**
-- **Fill** - **Mode - (*Solid, Gradient, Dither, and Scanlines*), falloff, Depth.***
+These controls style the final pre-canvas pass.
 
 ### Line Style
 
-- **Line Thickness** (0–0.95) — stroke weight. Higher values give heavier lines. At 0 a fine line remains rather than disappearing entirely.
-- **Peak Glow** (0–5) — brightens raised parts more than flat parts. It adds brightness, not a separate soft halo. With Palette Dither on, peaks may shift toward brighter palette colors.
-- **Height Gradient** (0–1) — darkens low, flat parts while leaving tall peaks brighter. Higher values make crests stand out more strongly.
-- **Peak Thickness** (0–4) — widens the line where a wave is tall. Use with some Line Thickness to give peaks heavier strokes while quieter parts stay thin.
-- **Depth Fade** (0–1) — darkens rows toward the back/top of the stack. Higher values separate foreground and distance more strongly.
-- **Aggregate Glow** (0–4) — brightens the whole plot as the overall sound level rises. Higher values give stronger whole-picture pulses.
+- **Line Thickness** (0–0.95) 
+- **Peak Glow** (0–5)
+- **Height Gradient** (0–1) 
+- **Peak Thickness** (0–4)
+- **Depth Fade** (0–1) 
+- **Aggregate Glow** (0–4)
 
 ### Fill
 
 Fill is the area beneath each line.
 
 - **Fill Mode** — **Solid** gives a plain dark area; **Gradient** fades shading downward; **Scanlines** uses horizontal stripes; **Dither** uses a fine repeating speckled pattern. Solid does not use Fill Ink or Fill Falloff, but Fill Depth Lift can still brighten it.
-- **Fill Ink** (0–1) — strength of shading in Gradient, Scanlines, or Dither mode. At 0 that shading disappears; higher values make it denser and more visible.
-- **Fill Falloff** (0.05–1) — how far shading reaches below a line. **Higher values spread it farther downward**; lower values keep it near the stroke.
-- **Fill Depth Lift** (0–0.5) — adds brightness beneath rows toward the back/top. Raise it to make those layers more visible; it also works in Solid mode.
-- **Scanline Pitch** (2–16) — stripe spacing in Scanlines mode. Higher values make broader stripes and gaps. It does not resize the Fill Mode's Dither pattern.
-
+- **Fill Ink** (0–1) 
+- **Fill Falloff** (0.05–1)
+- **Scanline Pitch** (2–16)
 ### Palette Dither
 
 “Dither” creates shading with patterns of small marks or neighboring colors, like a printed picture. The pattern stays aligned with the screen while the picture beneath it moves.
