@@ -55,48 +55,45 @@ Use **IMPORT MEDIA** for photo / video files. Videos play and repeat automatical
 ### MIDI — Midi mode
 
 - **MIDI Gain** (0.1–4) — overall strength of the response to played notes.
-- **Harmonics** (1–32) — number of higher-pitched companions each note creates in the picture. Low values give a focused response; higher values activate more lines above the note's own pitch.
-- **Harm. Rolloff** (0.2–2) — how strongly those higher companions fade. Higher values concentrate movement around the main note; lower values keep more upper lines active.
-- **Band Spread** (0.1–6 semitones) — how widely each note spreads across nearby pitches. Higher values affect a broader group of lines. A semitone is the pitch step between neighboring piano keys.
-- **Note Attack** (1–60) — how quickly a played note appears. Higher values feel immediate; lower values give a gentler rise.
-- **Note Release** (0.5–30) — how quickly a note fades after releasing the key. Higher values stop sooner; lower values leave longer tails.
-- **Velocity Floor** (0–1) — minimum strength for softly played notes. Raise it if gentle playing barely registers; lower it for a greater difference between soft and hard playing.
-
+- **Harmonics** (1–32) — number of harmonics simulated.
+- **Harm. Rolloff** (0.2–2) — Decay rate for **simulated tones.**
+- **Band Spread** (0.1–6 semitones) — how widely each note spreads across nearby pitches.
+- **Note Attack** (1–60)
+- **Note Release** (0.5–30)
+- **Velocity Floor** (0–1)
 ## WAVE tab
 
 ### Shape
 
-- **Active Bands** (32–512) — number of sound-responsive lines. Fewer give a sparse, bold drawing; more create a dense field with finer detail.
-- **Top Padding / Bottom Padding** (0–128 each) — extra rows above and below the sound-responsive area, creating quieter margins. Wobble, spreading waves, and images can still affect these rows, so they are not guaranteed to stay flat.
+- **Active Bands** (32–512) — number of sound-responsive lines.
+- **Top Padding / Bottom Padding** (0–128 each)
 
 ### Response
 
-- **Dynamic Baseline** — reduces the part of a sound that stays steady, helping new hits stand out. Turn it off to let sustained sounds keep a fuller shape.
-- **Baseline Subtract** (0–1) — amount of steady activity removed when Dynamic Baseline is on. Higher values emphasize changes but can lose quieter detail.
-- **Dynamic Boost** (0.5–6) — strengthens the remaining movement when Dynamic Baseline is on. Raise it to make the newly emphasized hits taller.
-- **Response Gamma** (0.25–2) — balance between small and large movements. Below 1 brings out faint activity; above 1 favors stronger peaks. At 1, this extra shaping is neutral.
-- **Noise Floor Lift** (0–0.2) — small extra lift for already-active lines, keeping faint sound visible. It does not create motion in complete silence; use Ambient Wobble for that.
-- **Edge Falloff** (0–64 bands) — gradually reduces movement near the top and bottom of the active area. Higher values create a broader, softer transition into quiet margins; 0 leaves the edge untapered.
+- **Dynamic Baseline** — **Generally, good to have on.** Subtracts average normalized energy to let new notes and their transients pop!
+- **Baseline Subtract** (0–1) — amount of steady activity removed.
+- **Dynamic Boost** (0.5–6) — strengthens the remaining movement.
+- **Response Gamma** (0.25–2)
+- **Noise Floor Lift** (0–0.2)
+- **Edge Falloff** (0–64 bands) — gradually reduces movement near the top and bottom of the active area.
 
 ### Ambient Motion
 
 These add movement independent of music.
 
-- **Ambient Wobble** (0–0.15) — amount of gentle waviness, including during silence. At 0, this added movement disappears.
-- **Wobble Speed** (0–3) — how quickly the waviness changes shape. Higher values feel more restless.
-- **Drift Speed** (0–3) — how quickly the wobble travels sideways. At 0 it stops drifting, though Wobble Speed can still change its shape.
+- **Ambient Wobble** (0–0.15) — amount of gentle waviness
+- **Wobble Speed** (0–3) 
+- **Drift Speed** (0–3)
 
 ## VISUAL tab
 
-### Envelope
+### Band Envelope
 
-“Envelope” means how a wave rises and falls over time.
+- **Band Attack** (1–60)
+- **Band Release** (0.5–30)
 
-- **Band Attack** (1–60) — how quickly lines rise when sound arrives. Higher values give snappy hits; lower values make hills swell gradually.
-- **Band Release** (0.5–30) — how quickly lines sink after sound fades. Higher values give short, crisp responses; lower values leave slow, flowing hills.
-
-These are speeds: **a larger Attack or Release value means a faster response**, not a longer wait.
-
+These are speeds: **a larger Attack or Release value means a faster response**
+Note: **The band envelope is independent of the audio processor envelope**
 ### Band Coupling
 
 - **Bump Bleed (bands)** (0–32) — lets each main bump lift neighboring lines above and below it. At 0, lines respond independently. Higher values join isolated peaks into broad hills across the stack.
