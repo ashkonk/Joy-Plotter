@@ -33,22 +33,20 @@ Jump to: [INPUT](#input-tab) · [AUDIO](#audio-tab) · [WAVE](#wave-tab) · [VIS
 
 ### Media loading
 
-Use **IMPORT MEDIA** for PNG/JPG photos or video files (MP4, M4V, MOV, WebM, AVI, WMV; decoding depends on the installed platform codecs). Videos play and repeat automatically with their audio muted, using the same controls as photos. Your selected Audio/MIDI/Line-In input continues driving the ridges. **REMOVE** cancels loading, releases the media, and restores the controls to their starting settings. A replacement stays in the loading state until its first frame is ready; a failed replacement leaves the current media visible. See MEDIA for how each frame affects the waves.
+Use **IMPORT MEDIA** for photo / video files. Videos play and repeat automatically.
 
 ## AUDIO tab
 
-These controls change the response to sound without changing the sound itself.
-
 ### Processor
 
-- **Input Gain** (0.1–8) — overall sensitivity. Raise it if movement is too small. Very high values can make many peaks look equally tall or bright.
-- **Attack Rate** (1–60) — how quickly the measured sound level catches a rise in volume. Higher values make sound-driven brightness and automatic movements respond more sharply; lower values soften sudden changes. For the main stacked lines' rise, use **Band Attack** in VISUAL.
-- **Release Rate** (0.5–30) — how quickly the measured level falls after sound fades. Higher values settle sooner; lower values let sound-driven effects linger. Use **Band Release** for the main lines themselves.
+- **Input Gain** (0.1–8) — overall sensitivity.
+- **Attack Rate** (1–60)
+- **Release Rate** (0.5–30)
 - **Norm. Adapt Time** (2–30 seconds) — how long the app takes to learn what counts as “usual loudness.” This helps MODS react to accents rather than staying fully raised throughout a loud song. Shorter times adjust quickly to new passages; longer times let a sustained loud section stand out for longer.
 
 ### Capture — Audio mode
 
-- **Capture Gain** (0.1–8) — sensitivity to the player's output. Raise it for a stronger visual response without raising listening volume.
+- **Capture Gain** (0.1–8)
 
 ### Line-In — Line-In mode
 
