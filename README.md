@@ -306,8 +306,8 @@ Routes move a setting relative to your chosen starting value. Several routes aim
 
 | Source | How it triggers |
 | --- | --- |
-| **Low** | Bass/Kick/Etc. |
-| **Mid** | Vocals/Instruments |
+| **Low** | |
+| **Mid** | |
 | **High** | |
 | **Overall** | Stronger-than-usual sound across the whole mix. |
 | **Centroid** | Whether sound is weighted toward low or high pitches. Brighter, higher-pitched sound raises the signal; **NOT loudness.** |
