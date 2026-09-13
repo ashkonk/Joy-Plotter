@@ -168,15 +168,15 @@ These work with Dither Style set to Halftone Cells.
 - **Coverage Floor** (0–0.5) — minimum extra fullness of marks in already-visible areas. Raise it to keep faint marks from becoming too tiny. Background areas remain empty.
 - **Coverage Gain** (0.5–3) — how strongly brightness makes marks fill their cells. Higher values produce heavier, denser printing; lower values leave more space around marks.
 - **Mark Style** — **Dots** gives a newspaper-like dot texture. **Glyphs** uses small symbols and geometric marks instead.
-- **Glyph Variety** (0–1; Glyphs only) — variety of symbol families. At 0 the marks share one family; higher values mix more families. Marks within a family can still change with brightness.
-- **Glyph Region Scale** (0.02–0.6; Glyphs only) — how frequently symbol families change across the image. Lower values create larger areas of similar marks; higher values make smaller patches. Most noticeable with Glyph Variety raised.
-- **Glyph Fill** (0.6–1.4; Glyphs only) — size of each symbol inside its cell. Lower values leave breathing room; higher values make symbols broader and more crowded without changing cell spacing.
+- **Glyph Variety** (0–1; Glyphs only)
+- **Glyph Region Scale** (0.02–0.6; Glyphs only)
+- **Glyph Fill** (0.6–1.4; Glyphs only) — size of each symbol inside its cell.
 
 ### Tone Ramp
 
 These spread the picture's brightness across palette colors in both dither styles.
 
-- **Ramp Black Point** (0–0.5) — brightness below which the picture becomes the darkest palette color. Raise it to remove faint trails and low-level detail, leaving cleaner dark areas.
+- **Ramp Black Point** (0–0.5) — brightness below which the picture becomes the darkest palette color.
 - **Ramp White Point** (0.5–1) — brightness needed to reach the lightest palette color. Lower it to bring lighter colors into more of the picture; raise it to reserve them for strong highlights.
 - **Ramp Contrast** (0.5–4) — separation between dark and light. Higher values favor the dark and light ends of the palette; lower values keep more of the picture around middle tones.
 
