@@ -187,9 +187,9 @@ Canvas can leave echoes of earlier pictures and move them around. **Trails must 
 
 ### Zoom
 
-- **Zoom Flow** (0.5–2) - ongoing size change of echoes. **1 is still**; above 1 sends trails outward, below 1 draws them inward.
+- **Zoom Flow** (0.5–2) - ongoing size change of echoes.
 - **Zoom Pattern** - lets different parts zoom at different speeds, creating bulges and tunnel-like shapes.
-- **Zoom Pattern Amount** (−0.5–0.5) - strength of uneven zoom. At 0, all parts follow Zoom Flow equally; negative values reverse the variation.
+- **Zoom Pattern Amount** (−0.5–0.5) - strength of uneven zoom.
 
 ### Spin
 
@@ -205,7 +205,7 @@ Canvas can leave echoes of earlier pictures and move them around. **Trails must 
 
 ### Stretch & Focus
 
-- **Stretch** (X/Y pad, 0.5–2 each) - continuously widens/narrows echoes horizontally and lengthens/squeezes them vertically. **1 on both axes is neutral**. Above 1 expands that direction; below 1 contracts it.
+- **Stretch** (X/Y pad, 0.5–2 each) - continuously widens/narrows echoes horizontally and lengthens/squeezes them vertically. **1 on both axes is neutral**.
 - **Focal Point** (X/Y pad, 0–1 each) - center for zooming, stretching, and rotation, including the Lens. **0.5 / 0.5** is the middle. Move it toward an edge for off-center motion.
 
 In MODS and MAPS, the vertical halves of these pads are named **Stretch Y** and **Focal Point Y**; **Slide Y** and **Lens Slide Y** work the same way for their pads.
@@ -242,28 +242,26 @@ The Lens changes the whole visible picture without needing echoes. **Zoom, Angle
 
 ## MEDIA tab
 
-An imported photo or each frame of a video becomes heights and brightness across the lines. Bright parts have more influence than dark parts; the media's original colors are not reproduced. Import or remove it on INPUT. Videos use the same Height Influence, Audio Gate, Contrast, active-region mapping, and flip controls as photos.
+An imported photo or each frame of a video becomes heights and brightness across the lines.
 
 - **Height Influence** (0–2) - Strength of the image influence on band height (independent of audio.)
-- **Audio Gate** (0–1) - uses the image as a stencil for music-driven bumps and ripples. At 0 sound moves freely across the picture. 
+- **Audio Gate** (0–1) - uses the image as a stencil for music-driven bumps and ripples.
 - **Gate Floor** (0–1) - musical movement allowed through the darkest image areas when Audio Gate is used.
 - **Black Level** (0–0.5)
 - **Contrast** (0.25–4) 
 - **Active Region Only** - Fit the image within active bands (exclude padding.)
 - **Flip Vertically**
 
-For an image that stays visible, raise Height Influence. For a shape revealed mainly by moving sound, try Height Influence at 0, Audio Gate near 1, and a low Gate Floor. Ambient Wobble can still move lines outside that shape.
-
 ## MAPS tab
 
-Mappings let keys or a MIDI controller change settings while you perform. Choose a trigger and a target, then set the step/direction where applicable.
+Mappings let keys or a MIDI controller change settings while you perform. **MIDI Maps still work in Audio/Line-in mode**
 
-- **Keyboard** - captures a key or combination. Number settings move one step per press and repeat while held; switches toggle, and dropdown choices move forward/backward.
-- **MIDI notes** - use a played note or pad like a keyboard trigger. Holding a note can repeat changes to number settings.
-- **MIDI CC** - connects a controller knob or slider directly to a setting. Its position selects a value across the setting's range. These changes are not added to undo history.
-- **Step / direction** - for keys and MIDI notes, a larger step changes the target more per press; direction selects increase/decrease or next/previous.
+- **Keyboard** - captures a key or macro.
+- **MIDI notes** - use a played note or pad like a keyboard trigger. Holding a note continuously fires.
+- **MIDI CC** - connects a controller knob or slider directly to a setting. Its position selects a value across the setting's range. NOTE: **These changes are not added to undo history.**
+- **Step / direction** - Value to add/subtract per activation.
 
-Mappings work with the menu open or closed, but pause while typing or using a file browser. Dimmed targets keep their usual prerequisites. Mapping a MIDI note is separate from choosing Midi as the visual input.
+Mappings work with the menu open or closed, but pause while typing or using a file browser. 
 
 Mappings save separately from visual presets, so changing looks keeps your controller setup. **Session Mode**, playlist timing, and **Mod Route 1–8 On/Off** are also targets. Route switches refer to list positions: deleting an earlier route shifts which route a later switch controls.
 
