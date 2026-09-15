@@ -146,21 +146,21 @@ Fill is the area beneath each line.
 12-swatch color quantized dithering.
 
 - **Palette Dither**
-- **Palette** - named collection of colors, with a 12-swatch preview. Use its gear to edit it, or choose **+ New Palette** to create a separate palette from the current colors.
-- **Palette Size** (2–12) - number of swatches used, starting with the first swatch in the strip. Smaller values simplify the picture; larger values allow more color steps. Swatches beyond this count do not affect the output yet.
+- **Palette** - named collection of colors, with a 12-swatch preview.
+- **Palette Size** (2–12) - number of swatches used.
 - **Dither Style** - **Pattern** gives a regular texture of small color blocks; **Halftone Cells** builds the picture from larger dots or symbols.
-- **Pixel Size** (1–16; Pattern only) - size of color blocks. Higher values give a chunky, pixelated print.
+- **Pixel Size** (1–16; Pattern only)
 - **Dither Spread** (0–1; Pattern only) - how much neighboring palette colors mingle.
 
-Colors follow brightness: darker parts use darker active swatches and lighter parts use lighter ones. The active colors are sorted by brightness for this purpose. The darkest active swatch supplies the dark background; it need not be first in the strip.
+Colors follow brightness: darker parts use darker active swatches and lighter parts use lighter ones. The active colors are sorted by brightness for this purpose.
 
 ### Halftone Cells
 
 These work with Dither Style set to Halftone Cells.
 
-- **Cell Size** (4–48) - size of spaces containing individual dots or symbols. Small cells preserve detail; large cells make the print marks easier to see.
-- **Coverage Floor** (0–0.5) - minimum extra fullness of marks in already-visible areas. Raise it to keep faint marks from becoming too tiny. Background areas remain empty.
-- **Coverage Gain** (0.5–3) - how strongly brightness makes marks fill their cells. Higher values produce heavier, denser printing; lower values leave more space around marks.
+- **Cell Size** (4–48) - size of spaces containing individual dots or symbols.
+- **Coverage Floor** (0–0.5) - minimum extra fullness of marks in already-visible areas.
+- **Coverage Gain** (0.5–3) - how strongly brightness makes marks fill their cells.
 - **Mark Style** - **Dots** gives a newspaper-like dot texture. **Glyphs** uses small symbols and geometric marks instead.
 - **Glyph Variety** (0–1; Glyphs only)
 - **Glyph Region Scale** (0.02–0.6; Glyphs only)
@@ -171,9 +171,8 @@ These work with Dither Style set to Halftone Cells.
 These spread the picture's brightness across palette colors in both dither styles.
 
 - **Ramp Black Point** (0–0.5) - brightness below which the picture becomes the darkest palette color.
-- **Ramp White Point** (0.5–1) - brightness needed to reach the lightest palette color. Lower it to bring lighter colors into more of the picture; raise it to reserve them for strong highlights.
-- **Ramp Contrast** (0.5–4) - separation between dark and light. Higher values favor the dark and light ends of the palette; lower values keep more of the picture around middle tones.
-
+- **Ramp White Point** (0.5–1) - brightness needed to reach the lightest palette color.
+- **Ramp Contrast** (0.5–4)
 ## CANVAS tab
 
 Canvas can leave echoes of earlier pictures and move them around. **Trails must be above 0 for trail-motion controls to have anything to move.** The Lens controls also work without trails.
@@ -181,9 +180,9 @@ Canvas can leave echoes of earlier pictures and move them around. **Trails must 
 ### Trails
 
 - **Trails** (0–1) - amount of the previous picture kept.
-- **Trail Fade** (0–4) - extra fading over time. Higher values shorten trails. At 0, Trails and movement off-screen can still remove the old picture.
-- **Fade Pattern** - where fading varies. Radial varies it between the center and edges; Noise gives patchy fading.
-- **Fade Pattern Amount** (−4–4) - strength of that difference. At 0, fading is even. Negative values reverse which areas fade faster. If the amount exceeds Trail Fade, some areas can stop receiving this extra fading.
+- **Trail Fade** (0–4) - strength of the fading over time.
+- **Fade Pattern**
+- **Fade Pattern Amount** (−4–4)
 
 ### Zoom
 
@@ -199,14 +198,14 @@ Canvas can leave echoes of earlier pictures and move them around. **Trails must 
 
 ### Slide
 
-- **Slide** (X/Y pad, −0.5–0.5 per direction) - ongoing sideways and vertical drift of echoes. The center stops this drift; farther from the center moves faster.
-- **Slide X Pattern / Slide Y Pattern** - varies horizontal or vertical drift across the picture. Each direction can use a different pattern.
-- **Slide X Pattern Amount / Slide Y Pattern Amount** (−0.5–0.5 each) - strength of uneven drift. At 0 the pattern has no effect; negative values reverse it.
+- **Slide** (X/Y pad, −0.5–0.5 per direction) - ongoing sideways and vertical drift of echoes.
+- **Slide X Pattern / Slide Y Pattern** - varies horizontal or vertical drift across the picture.
+- **Slide X Pattern Amount / Slide Y Pattern Amount** (−0.5–0.5 each) - strength of uneven drift.
 
 ### Stretch & Focus
 
 - **Stretch** (X/Y pad, 0.5–2 each) - continuously widens/narrows echoes horizontally and lengthens/squeezes them vertically. **1 on both axes is neutral**.
-- **Focal Point** (X/Y pad, 0–1 each) - center for zooming, stretching, and rotation, including the Lens. **0.5 / 0.5** is the middle. Move it toward an edge for off-center motion.
+- **Focal Point** (X/Y pad, 0–1 each) - center for zooming, stretching, and rotation, including the Lens.
 
 In MODS and MAPS, the vertical halves of these pads are named **Stretch Y** and **Focal Point Y**; **Slide Y** and **Lens Slide Y** work the same way for their pads.
 
@@ -265,21 +264,6 @@ Mappings work with the menu open or closed, but pause while typing or using a fi
 
 Mappings save separately from visual presets, so changing looks keeps your controller setup. **Session Mode**, playlist timing, and **Mod Route 1–8 On/Off** are also targets. Route switches refer to list positions: deleting an earlier route shifts which route a later switch controls.
 
-### Additional targets in MAPS and MODS
-
-These source controls appear in target lists even though there is no separate SOURCES tab. A “source” is a layer of the picture: the ridge layer supplies stacked lines; the optional spectrum wave supplies a single sound-responsive line.
-
-- **Ridge Enabled / Wave Enabled** - shows/hides that layer. Existing trails can remain until they fade.
-- **Ridge Gain / Wave Gain** (0–4 each) - brightness contributed by the layer. At 0 it adds no visible color; higher values strengthen it.
-- **Ridge Blend / Wave Blend** - **Additive** brightens overlaps, **Over** places the layer over what is already there, and **Max** keeps brighter overlapping parts. Over can cover existing trails or layers.
-- **Wave Spectrum** - **Raw** follows sound immediately; **Smoothed** softens changes using AUDIO's Attack Rate and Release Rate.
-- **Wave Thickness** (0.001–0.05) - stroke weight of the single wave.
-- **Wave Position** (0–1) - vertical position of its resting line.
-- **Wave Height** (0–1) - height of its sound-driven movement.
-- **Wave Ink** (0–1) - brightness of its stroke before Wave Gain is applied.
-
-Wave shape controls have a visible effect only when the wave layer is enabled.
-
 ## MODS tab
 
 MODS moves settings automatically. Each *route* connects a source of movement to a target. For example, **Overall → Visual Gain** makes loud accents raise the waves; **LFO → Lens Zoom** makes the picture grow and shrink.
@@ -307,11 +291,11 @@ Routes move a setting relative to your chosen starting value. Several routes aim
 | **Low** | |
 | **Mid** | |
 | **High** | |
-| **Overall** | Stronger-than-usual sound across the whole mix. |
+| **Overall** | Spikes in loudness trigger the mod. |
 | **Centroid** | Whether sound is weighted toward low or high pitches. Brighter, higher-pitched sound raises the signal; **NOT loudness.** |
-| **Onset** | A brief trigger when overall level crosses the hit threshold. Useful for a flash or kick followed by a fade. |
-| **LFO** | Automatic repeating movement, including without music. Useful for swaying or pulsing. |
-| **Accumulator** | Builds movement over time as sound or hits feed it, then drains away. Useful for gradual changes. |
+| **Onset** | A brief trigger when overall level crosses the hit threshold. |
+| **LFO** | Automatic repeating movement. |
+| **Accumulator** | Builds movement over time as sound or hits feed it, then drains away. |
 
 Low, Mid, High, and Overall normally rest at zero until sound exceeds its recent usual level. AUDIO's Norm. Adapt Time changes how quickly that reference adjusts. Inverse and Threshold curves alter this resting behavior.
 
@@ -347,14 +331,29 @@ Think of an accumulator as a container that sound fills and time empties. There 
 - **Fill Rate** (0–4) - how quickly it builds while its source is active. Higher values reach full strength sooner; 0 stops filling.
 - **Decay** (0–4) - how quickly it drains toward rest. Higher values settle sooner; 0 holds the accumulated level instead of draining.
 
-Onset, LFO, and accumulator settings save with presets and can be adjusted through MAPS, but cannot themselves be moved by a modulation route.
+**Onset, LFO, and accumulator settings save with presets and can be adjusted through MAPS, but cannot themselves be moved by a modulation route.**
+
+### Additional targets in MAPS and MODS
+
+These source controls appear in target lists even though there is no separate SOURCES tab.
+
+- **Ridge Enabled / Wave Enabled** - shows/hides that layer. Existing trails can remain until they fade.
+- **Ridge Gain / Wave Gain** (0–4 each) - brightness contributed by the layer. At 0 it adds no visible color; higher values strengthen it.
+- **Ridge Blend / Wave Blend** - **Additive** brightens overlaps, **Over** places the layer over what is already there, and **Max** keeps brighter overlapping parts. Over can cover existing trails or layers.
+- **Wave Spectrum** - **Raw** follows sound immediately; **Smoothed** softens changes using AUDIO's Attack Rate and Release Rate.
+- **Wave Thickness** (0.001–0.05) - stroke weight of the single wave.
+- **Wave Position** (0–1) - vertical position of its resting line.
+- **Wave Height** (0–1) - height of its sound-driven movement.
+- **Wave Ink** (0–1) - brightness of its stroke before Wave Gain is applied.
+
+Wave shape controls have a visible effect only when the wave layer is enabled.
 
 ## PRESETS tab
 
 ### Saving and sharing
 
 - **SAVE** - saves the current look under the entered name on this computer.
-- **LOAD** - replaces the current look with the selected preset, including routes. A preset without routes clears existing routes.
+- **LOAD** - replaces the current look with the selected preset, including routes.
 - **DELETE** - removes a user-saved preset. Shipped presets cannot be deleted; deleting your saved version of a shipped name reveals the original again.
 - **IMPORT** - adds presets from `.json` or `.joypresets`. Existing names are kept; imported duplicates receive new names. Select an imported preset and press LOAD to see it.
 - **EXPORT SELECTED** - writes the selected saved preset to a shareable file. Save your latest edits first to include them.
@@ -376,11 +375,10 @@ Onset, LFO, and accumulator settings save with presets and can be adjusted throu
 - **Hold Time** (1–300 seconds) - time to stay on a look before the next automatic advance, after its transition finishes.
 - **Auto Advance** - moves through the playlist automatically in Play mode. Manual advances restart the wait.
 
-The playlist is kept between launches. Its timing stays separate from presets, so loading a look does not change the pace of your set. Changing Transition Time during a transition affects the next one.
+The playlist is kept between launches. Its timing stays separate from presets, so loading a look does not change the pace of your set. **Changing Transition Time during a transition affects the next one.**
 
 ## Known Issues
 
-- **Canvas motion seems inactive:** raise Trails, or use Lens controls for motion without echoes. Patterns also need a nonzero Pattern Amount.
 - **A WAV will not load:** use uncompressed PCM WAV. Re-exporting as 16-bit PCM WAV, or using OGG/MP3, avoids compressed WAV formats the player cannot read.
 
 Found something else? Open an issue!
